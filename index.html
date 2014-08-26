@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+<style type="text/css">
+body, html,#allmap {width: 100%;height: 100%;overflow: hidden;margin:0;}
+</style>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=LtRHNZ2UE5ikiqCiRjRzhWc2"></script>
+<title>北京市学区房</title>
+</head>
+<body>
+<div id="allmap"></div>
+</body>
+</html>
+<script type="text/javascript">
+
+
+var map = new BMap.Map("allmap");
+var point = new BMap.Point(116.404, 39.915);
+map.centerAndZoom(point, 15);
+map.addControl(new BMap.NavigationControl());  //添加默认缩放平移控件
+map.enableScrollWheelZoom();    //启用滚轮放大缩小，默认禁用
+//奋斗小学- 地理范围、学校名称、成交刷新、最新价格
+var nPoly = new BMap.Polygon([
+  new BMap.Point(116.369774,39.911393),
+  new BMap.Point(116.363504,39.911365),
+  new BMap.Point(116.364995,39.905402),
+  new BMap.Point(116.375092,39.905775),
+  new BMap.Point(116.374948,39.909899),
+  new BMap.Point(116.36981,39.909871)
+], {strokeColor:"red", strokeWeight:2, strokeOpacity:0.5});
+map.addOverlay(nPoly);
+var point = new BMap.Point(116.369774,39.911393);
+var opts = {
+  position : point,    // 指定文本标注所在的地理位置
+  offset   : new BMap.Size(0, 0)    //设置文本偏移量
+ 
+}
+var label = new BMap.Label("奋斗小学学区、最新成交价格8.5万/平米", opts);  // 创建文本标注对象
+	label.setStyle({
+		 color : "black",
+		 fontSize : "12px",
+		 height : "20px",
+		 lineHeight : "20px",
+		 fontFamily:"微软雅黑"
+	 });
+map.addOverlay(label);
+//宏庙小学
+var nPoly = new BMap.Polygon([
+  new BMap.Point(116.373529,39.928133),
+  new BMap.Point(116.373547,39.925961),
+  new BMap.Point(116.371319,39.925947),
+  new BMap.Point(116.370223,39.92004),
+  new BMap.Point(116.380248,39.920912),
+  new BMap.Point(116.379925,39.92834)
+], {strokeColor:"blue", strokeWeight:2, strokeOpacity:0.5});
+map.addOverlay(nPoly);
+var point = new BMap.Point(116.373529,39.928133);
+var opts = {
+  position : point,    // 指定文本标注所在的地理位置
+  offset   : new BMap.Size(0, 0)    //设置文本偏移量
+ 
+}
+var label = new BMap.Label("宏庙小学学区、最新成交价格11万/平米", opts);  // 创建文本标注对象
+	label.setStyle({
+		 color : "black",
+		 fontSize : "12px",
+		 height : "20px",
+		 lineHeight : "20px",
+		 fontFamily:"微软雅黑"
+	 });
+map.addOverlay(label);
+
+
+</script>
